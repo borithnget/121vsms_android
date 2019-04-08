@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:accessibilityPaneTitle="Post Ad"
+        android:background="@color/colorAccent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:theme="@style/ThemeOverlay.AppCompat"
+        app:layout_collapseMode="pin" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/image_layout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/gallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"></LinearLayout>
+
+
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#BDBABA"
+                    android:text="DETAIL"
+                    android:textColor="#0C0707"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_detail"
+                    android:background="#FFFF"
+                    >
+
+                    <EditText
+                        android:id="@+id/etTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint=" Title"
+                        android:textSize="19dp"
+                        android:background="#FFFF"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilTitle">
+
+                    <TextView
+                        android:id="@+id/etCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Choose a Category"
+                        android:textSize="19dp"
+                        android:background="@drawable/border"
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilTax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilCategory">
+
+                    <TextView
+                        android:id="@+id/etTax"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Tax Type"
+                        android:textSize="19dp"
+                        android:background="@drawable/border"
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilBrand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilTax">
+
+                    <TextView
+                        android:id="@+id/etBrand"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Brand"
+                        android:textSize="19dp"
+                        android:background="@drawable/border"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilBrand">
+
+                    <TextView
+                        android:id="@+id/etYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Year"
+                        android:textSize="19dp"
+                        android:background="@drawable/border" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilYear">
+
+                    <TextView
+                        android:id="@+id/etCondition"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Condition"
+                        android:textSize="19dp"
+                        android:background="@drawable/border"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilPice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilCondition"
+                    android:background="#FFFF">
+
+
+                    <EditText
+                        android:id="@+id/etPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Price"
+                        android:textSize="19dp"
+                        android:background="#FFFF"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilPice"
+                    android:background="#FFFF">
+
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Description"
+                        android:textSize="19dp"
+                        android:background="#FFFF"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_Discount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_discout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#BDBABA"
+                    android:text="Discount"
+                    android:textColor="#0C0707"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilDisType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_discout">
+
+                    <TextView
+                        android:id="@+id/etDisType"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Discount Type"
+                        android:textSize="19dp"
+                        android:background="@drawable/border"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilDisAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilDisType"
+                    android:background="#FFFF">
+
+                    <EditText
+                        android:id="@+id/etDisAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+
+                        android:hint="  Discount Amount"
+                        android:inputType="number"
+                        android:textSize="19dp"
+                        android:background="#FFFF"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_Contact"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/title_Contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#BDBABA"
+                    android:text=" Contact"
+                    android:textColor="#0C0707"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_Contact"
+                    android:background="#FFFF">
+
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Name"
+                        android:textSize="19dp"
+                        android:background="@drawable/underline"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    android:layout_width="341dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilName"
+                    android:background="#FFFF">
+
+                    <EditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Phone"
+                        android:inputType="phone"
+                        android:textSize="19dp"
+                        android:background="@drawable/underline"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_below="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#FFFF"
+                    android:layout_toRightOf="@+id/tilPhone">
+
+                    <ImageButton
+                        android:layout_gravity="center"
+                        android:id="@+id/btnAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="37dp"
+                        android:background="@drawable/underline"
+                        android:src="@drawable/ic_add_circle_black_24dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilPhone"
+                    android:background="#FFFF">
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  E-mail"
+                        android:inputType="textEmailAddress"
+                        android:textSize="19dp"
+                        android:background="#FFFF"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilEmail">
+
+                    <TextView
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:drawableRight="@drawable/ic_arrow_right_black_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="  Address"
+                        android:inputType="textPostalAddress"
+                        android:textSize="19dp"
+                        android:background="@drawable/border"
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/tilAddress">
+
+                    <fragment
+                        android:id="@+id/mapView"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_weight="1" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilMap"
+                    android:id="@+id/tilUpload"
+                    android:background="#FFFF">
+
+                    <Switch
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:drawableLeft="@drawable/ic_record_black_24dp"
+                        android:hint="Upload this contact to profile"
+                        android:textSize="19dp"
+                        android:theme="@style/SwitchCompatTheme"
+                        android:background="@drawable/border"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/tilUpload">
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:text="Submit"
+                        android:textColor="#fff"
+                        android:background="#4C66F7"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tilSubmit">
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
