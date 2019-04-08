@@ -44,4 +44,9 @@
         <item name="android:background">?android:attr/listDivider</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/tabcolor</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
 </resources>
