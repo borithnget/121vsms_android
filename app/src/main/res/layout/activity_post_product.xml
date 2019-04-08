@@ -99,7 +99,7 @@
                         android:drawableRight="@drawable/ic_arrow_right_black_24dp"
                         android:gravity="center_vertical"
                         android:hint="  Choose a Category"
-                        android:textSize="19dp"
+                        android:textSize="14dp"
                         android:background="@drawable/border"
 
                         />
