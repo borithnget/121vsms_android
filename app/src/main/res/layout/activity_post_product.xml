@@ -61,7 +61,7 @@
                     android:background="#BDBABA"
                     android:text="DETAIL"
                     android:textColor="#0C0707"
-                    android:textSize="20dp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/lato_bold"/>
 
