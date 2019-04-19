@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import java.util.ArrayList;
+
 public class fram_home extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
     int[] image_slids = {R.drawable.macbook_pro_2018,R.drawable.image_honda_dream,
@@ -37,6 +39,7 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
 
         Toolbar toolbar_home = (Toolbar) view.findViewById(R.id.toolbar_home);
         toolbar_home.setTitle("");
+     //   getSupportActionBar().setHomeAsUpIndicator(newdrawable);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar_home);
         setHasOptionsMenu(true);
 
@@ -45,10 +48,12 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+     //   toolbar_home.setLogo(R.drawable.logo);
 
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 //HorizontalScrollView
+
         Class_data_horizotal[] listdata = new Class_data_horizotal[]{
                 new Class_data_horizotal(R.drawable.image_honda_dream,"Honda Dream c125",2000,1800),
                 new Class_data_horizotal(R.drawable.image_honda_click125i_19,"Click 2019",1900,1660),
@@ -58,8 +63,8 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
                 new Class_data_horizotal(R.drawable.image_nex,"Nex 2019",1800,1000)
 
         };
-        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        Adapter_list_horizontal adapter=new Adapter_list_horizontal(listdata);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        Adapter_list_horizontal adapter = new Adapter_list_horizontal(listdata);
         RecyclerView recy_horizontal = (RecyclerView) view.findViewById(R.id.recy_horizontal);
         recy_horizontal.setLayoutManager(layoutManager);
         recy_horizontal.setAdapter(adapter);
@@ -67,6 +72,7 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         Adapter_list_horizontal adapter1=new Adapter_list_horizontal(listdata);
         RecyclerView recy_vertical = (RecyclerView) view.findViewById(R.id.recy_vertical);
         recy_vertical.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recy_vertical.setHasFixedSize(true);
 //        recy_vertical.setNestedScrollingEnabled(false);
         recy_vertical.setAdapter(adapter1);
 

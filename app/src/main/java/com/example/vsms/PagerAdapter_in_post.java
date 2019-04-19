@@ -1,0 +1,34 @@
+package com.example.vsms;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+
+public class PagerAdapter_in_post extends FragmentPagerAdapter {
+    //int mNumOfTabs;
+    public PagerAdapter_in_post(FragmentManager fm) {
+        super(fm);
+        //this.mNumOfTabs = NumOfTabs;
+    }
+    @Override
+    public Fragment getItem(int position) {
+        switch (position){
+            case 0:return Detail_product_in_post.newInstance(1);
+            default: return Detail_product_in_balance.newInstance(2);
+        }
+    }
+
+    @Override
+    public int getCount() {
+        return 2;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position){
+        switch (position){
+            case 0: return "Post (0)";
+            default: return "Balance (7)";
+        }
+    }
+
+}

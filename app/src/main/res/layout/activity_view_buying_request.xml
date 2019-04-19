@@ -9,6 +9,7 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
+        android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,15 +18,16 @@
         app:layout_constraintTop_toTopOf="parent">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content">
             <include
                 android:id="@+id/include"
                 layout="@layout/detail_product_header"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+                android:layout_height="600dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent">
             </include>
-
             <TextView
                 android:id="@+id/view"
                 android:layout_width="match_parent"
@@ -42,22 +44,27 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/bg_edit"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/shap_ratangle"
                 android:text="Call"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_chat"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view" />
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:layout_constraintVertical_bias="1.0" />
 
             <Button
                 android:id="@+id/btn_chat"
                 android:layout_width="0dp"
                 android:layout_height="34dp"
                 android:layout_marginStart="10dp"
-                android:background="@color/bg_edit"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shap_ratangle"
                 android:text="Chat"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_call"
+                app:layout_constraintEnd_toStartOf="@+id/btn_order"
                 app:layout_constraintStart_toEndOf="@+id/btn_call"
                 app:layout_constraintTop_toTopOf="@+id/btn_call" />
 
@@ -66,9 +73,11 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="8dp"
-                android:background="@color/bg_delete"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shap_ratangle1"
                 android:text="Order"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_chat"
+                app:layout_constraintEnd_toStartOf="@+id/btn_loan"
                 app:layout_constraintStart_toEndOf="@+id/btn_chat"
                 app:layout_constraintTop_toTopOf="@+id/btn_chat"
                 app:layout_constraintVertical_bias="1.0" />
@@ -79,13 +88,12 @@
                 android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="15dp"
-                android:background="@color/bg_delete"
+                android:background="@drawable/shap_ratangle1"
                 android:text="Loan"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_order"
                 app:layout_constraintEnd_toEndOf="@+id/view"
                 app:layout_constraintStart_toEndOf="@+id/btn_order"
                 app:layout_constraintTop_toTopOf="@+id/btn_order" />
-
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

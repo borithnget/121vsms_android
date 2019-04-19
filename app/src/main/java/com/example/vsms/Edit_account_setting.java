@@ -24,7 +24,6 @@ public class Edit_account_setting extends AppCompatActivity implements OnMapRead
     TextInputLayout phone2,phone3;
     Button btn_one,btn_two;
     ImageView img1;
-    private GoogleMap map;
     ImageView img_fname,img_lname,img_store,img_bc,img_wingnum,img_wingname,img_dealer,img_phone1,img_phone2,img_phone3;
     EditText edit_fname,edit_lname,edit_store,edit_bc,edit_wingnum,edit_wingname,edit_dealer,edit_phone1,edit_phone2,edit_phone3;
     @Override

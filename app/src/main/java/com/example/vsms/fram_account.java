@@ -5,9 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,6 +38,7 @@ public class fram_account extends Fragment {
     CircleImageView circleImageView;
     ImageButton img_profile;
     Button btn_upload;
+    private BottomSheetDialog bottomSheetDialog;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,6 +46,10 @@ public class fram_account extends Fragment {
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        final ViewPager viewPager = (ViewPager)view.findViewById(R.id.viewPager);
+    //    RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recy_in_post);
+
+
         toolbar.setTitle("");
         toolbar.setNavigationIcon(R.drawable.edit_account_35px);
         ((AppCompatActivity)getContext()).setSupportActionBar(toolbar);
@@ -75,24 +83,29 @@ public class fram_account extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Post ()"));
         tabLayout.addTab(tabLayout.newTab().setText("Loan ()"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        PagerAdapter_in_post pagerview = new PagerAdapter_in_post(getChildFragmentManager());
+        viewPager.setAdapter(pagerview);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
 
-//        Class_data_post[] listdata = new Class_data_post[]{
-//                new Class_data_horizotal(R.drawable.image_honda_dream,"Honda Dream c125",2000,1800),
-//                new Class_data_horizotal(R.drawable.image_honda_click125i_19,"Click 2019",1900,1660),
-//                new Class_data_horizotal(R.drawable.image_zoomer_x_2017,"Zoomer X 2017",2050,1590),
-//                new Class_data_horizotal(R.drawable.macbook_pro_2018,"Macbook Pro 2018",2300,1700),
-//                new Class_data_horizotal(R.drawable.image_hybrid_2017,"Honda Hybrid 2017",35000,3000),
-//                new Class_data_horizotal(R.drawable.image_nex,"Nex 2019",1800,1000)
-//
-//        };
-//
-//        LinearLayoutManager layoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-//        Adapter_list_post adapter=new Adapter_list_post(listdata);
-//        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-//        viewPager.setAdapter(adapter);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         return view;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){

@@ -6,8 +6,6 @@
     <color name="colorTablayout">#FF386AC7</color>
     <color name="background">#FFFFFF</color>
     <color name="backgroundfragment">#B2BEB5</color>
-    <color name="bg_delete">#D0EBA53F</color>
-    <color name="bg_edit">#DC1288E7</color>
     <color name="tabcolor">#95EC2E</color>
 </resources>
 

@@ -1,9 +1,11 @@
 package com.example.vsms;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,10 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Adapter_list_horizontal extends RecyclerView.Adapter<Adapter_list_horizontal.ViewHolder> {
+public class Adapter_list_horizontal extends RecyclerView.Adapter<Adapter_list_horizontal.ViewHolder>{
 
     private Class_data_horizotal[] listData;
-    private View_buying_request[] view_buyint;
 
     public Adapter_list_horizontal(Class_data_horizotal[] listData){
         this.listData=listData;
@@ -27,12 +28,12 @@ public class Adapter_list_horizontal extends RecyclerView.Adapter<Adapter_list_h
     public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
         View listitem= layoutInflater.inflate(R.layout.image_horizontal,parent,false);
-        View view_buying = layoutInflater.inflate(R.layout.activity_view_buying_request,parent,false);
         ViewHolder viewHolder = new ViewHolder(listitem);
 
          return viewHolder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Class_data_horizotal myListData = listData[position];
