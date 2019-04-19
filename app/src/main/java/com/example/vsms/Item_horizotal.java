@@ -1,12 +1,12 @@
 package com.example.vsms;
 
-public class Class_data_horizotal {
+public class Item_horizotal {
     private int image_view;
     private String brand;
     private double price;
     private double dic;
 
-    public Class_data_horizotal(int image_view, String brand, double price, double dic) {
+    public Item_horizotal(int image_view, String brand, double price, double dic) {
         this.image_view = image_view;
         this.brand = brand;
         this.price = price;
