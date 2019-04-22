@@ -79,7 +79,6 @@ public class View_buying_request extends AppCompatActivity{
                 intent.putExtra("ac","R.id.navigation_camera");
                 v.getContext().startActivity(intent);
 
-
                 Toast.makeText(View_buying_request.this,"Hello",Toast.LENGTH_SHORT).show();
             }
         });

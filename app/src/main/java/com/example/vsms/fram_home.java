@@ -1,6 +1,7 @@
 package com.example.vsms;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,9 +35,6 @@ import java.util.ArrayList;
 
 public class fram_home extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
-    int[] image_slids = {R.drawable.macbook_pro_2018,R.drawable.image_honda_dream,
-            R.drawable.image_honda_click125i_19,R.drawable.image_zoomer_x_2017};
-    ViewFlipper viewFlipper;
     SliderLayout sliderLayout;
     private ArrayList<Item_horizotal> items;
     @Nullable
@@ -60,15 +58,15 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ImageView img_motor = (ImageView)view.findViewById(R.id.image_motor);
+        img_motor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Sell Motorcycle",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         creatItem();
-//Vertical
-        SnapRecyclerAdapter adapter1=new SnapRecyclerAdapter(getContext(),items);
-        RecyclerView recy_vertical = (RecyclerView) view.findViewById(R.id.recy_vertical);
-        recy_vertical.setLayoutManager(new GridLayoutManager(getContext(),2));
-        recy_vertical.setHasFixedSize(true);
-        recy_vertical.setAdapter(adapter1);
-
-
 //HORIZONTAL
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         SnapRecyclerAdapter adapter = new SnapRecyclerAdapter(getContext(),items);
@@ -76,20 +74,24 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         recy_horizontal.setHasFixedSize(true);
         recy_horizontal.setLayoutManager(layoutManager);
         recy_horizontal.setAdapter(adapter);
-
-
+//Vertical
+        SnapRecyclerAdapter adapter1 = new SnapRecyclerAdapter(getContext(),items);
+        RecyclerView recy_vertical = (RecyclerView) view.findViewById(R.id.recy_vertical);
+        recy_vertical.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recy_vertical.setHasFixedSize(true);
+        recy_vertical.setAdapter(adapter1);
 // Slides
         sliderLayout = view.findViewById(R.id.view_flipper);
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.SWAP); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderLayout.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
-        sliderLayout.setScrollTimeInSec(5); //set scroll delay in seconds :
+        sliderLayout.setScrollTimeInSec(4); //set scroll delay in seconds :
         setSliderViews();
-
 
         return view;
     }
     private void creatItem(){
         items = new ArrayList<>();
+        items.add( new Item_horizotal(R.drawable.image_zoomer_x_2017,"Zoomer X 2017",2050,1590));
         items.add( new Item_horizotal(R.drawable.image_honda_dream,"Honda Dream c125",2000,1800));
         items.add( new Item_horizotal(R.drawable.image_honda_click125i_19,"Click 2019",1900,1660));
         items.add( new Item_horizotal(R.drawable.image_zoomer_x_2017,"Zoomer X 2017",2050,1590));
@@ -97,7 +99,6 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         items.add( new Item_horizotal(R.drawable.image_nex,"Nex 2019",1800,1000));
         items.add( new Item_horizotal(R.drawable.image_hybrid_2017,"Honda Hybrid 2017",35000,3000));
     }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.home_page_item,menu);
@@ -146,8 +147,7 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         return true;
     }
     private void setSliderViews() {
-        for (int i = 0; i <= 3; i++) {
-
+        for (int i = 0; i < 4; i++) {
         DefaultSliderView sliderView = new DefaultSliderView(getContext());
         switch (i) {
             case 0:
@@ -166,12 +166,12 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
 //        sliderView.setDescription("The quick brown fox jumps over the lazy dog.\n" +
 //                "Jackdaws love my big sphinx of quartz. " + (i + 1));
-        final int finalI = i;
+            final int finalI = i;
 
         sliderView.setOnSliderClickListener(new SliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(SliderView sliderView) {
-                Toast.makeText(getActivity(), "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "This is slider " + (finalI), Toast.LENGTH_SHORT).show();
             }
         });
         //at last add this view in your layout :

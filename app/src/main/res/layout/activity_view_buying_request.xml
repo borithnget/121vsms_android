@@ -22,20 +22,23 @@
             <include
                 android:id="@+id/include"
                 layout="@layout/detail_product_header"
-                android:layout_height="600dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="match_parent">
             </include>
+
             <TextView
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:paddingLeft="15dp"
                 android:text="View 1000"
+                app:layout_constraintBottom_toTopOf="@+id/btn_call"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/include" />
 
@@ -52,14 +55,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_chat"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <Button
                 android:id="@+id/btn_chat"
                 android:layout_width="0dp"
                 android:layout_height="34dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/shap_ratangle"
                 android:text="Chat"

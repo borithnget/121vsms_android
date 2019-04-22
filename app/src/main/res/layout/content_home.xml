@@ -20,16 +20,18 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/image_motor"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/circle_border"
             android:src="@drawable/icons8_motorcycle_96px"
+            app:layout_constraintBottom_toTopOf="@+id/imageView5"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_flipper"/>
+            app:layout_constraintTop_toBottomOf="@+id/view_flipper" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -38,11 +40,11 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:background="@drawable/circle_border"
-            android:src="@drawable/icons8_motorcycle_96px"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            android:src="@drawable/icons8_car_80px"
+            app:layout_constraintBottom_toBottomOf="@+id/image_motor"
             app:layout_constraintEnd_toStartOf="@+id/imageView4"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"/>
+            app:layout_constraintStart_toEndOf="@+id/image_motor"
+            app:layout_constraintTop_toTopOf="@+id/image_motor"/>
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="80dp"
@@ -65,7 +67,7 @@
             android:src="@drawable/icons8_motorcycle_96px"
             app:layout_constraintEnd_toStartOf="@+id/imageView6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+            app:layout_constraintTop_toBottomOf="@+id/image_motor"/>
 
         <ImageView
             android:id="@+id/imageView6"
@@ -91,33 +93,59 @@
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="@+id/imageView6"/>
 
+        <TextView
+            android:id="@+id/product_dic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#D3DBDBDB"
+            android:text="Deal of the Day"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6">
+            app:layout_constraintTop_toBottomOf="@+id/product_dic">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recy_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-        <RelativeLayout
+
+        <TextView
+            android:id="@+id/new_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:background="#D3DBDBDB"
+            android:paddingLeft="10dp"
+            android:text="New Post"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_post">
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recy_vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </android.support.v7.widget.RecyclerView>
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
         </RelativeLayout>
 
     </android.support.constraint.ConstraintLayout>
