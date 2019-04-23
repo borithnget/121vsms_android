@@ -18,7 +18,6 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value=" AIzaSyASKhoYHLqg2AMFQhC2sONg-ibqtCVp7hs" />
-
         <activity android:name=".View_buying_request" />
         <activity android:name=".Edit_account_setting" />
         <activity android:name=".MainActivity">
