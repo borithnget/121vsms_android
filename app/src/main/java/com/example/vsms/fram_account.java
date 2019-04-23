@@ -47,7 +47,6 @@ public class fram_account extends Fragment {
     CircleImageView circleImageView;
     ImageButton img_profile;
     Button btn_upload;
-    private BottomSheetDialog bottomSheetDialog;
 
     TabLayout tabLayout;
     FrameLayout frameLayout;

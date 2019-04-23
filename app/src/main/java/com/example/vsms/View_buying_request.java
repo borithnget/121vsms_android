@@ -3,6 +3,7 @@ package com.example.vsms;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -73,10 +74,14 @@ public class View_buying_request extends AppCompatActivity{
         btn_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),MainActivity.class);
-            //  intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-
-                v.getContext().startActivity(intent);
+          //      Intent intent = new Intent(v.getContext(),MainActivity.class);
+          //      intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+//                intent.putExtra("image",getIntent().getIntExtra("img_header",0));
+                AlertDialog alert = new AlertDialog.Builder(View_buying_request.this).create();
+                alert.setMessage("Order completed");
+                alert.setCancelMessage(null);
+                alert.show();
+                //  v.getContext().startActivity(intent);
             }
         });
     }
