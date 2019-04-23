@@ -1,6 +1,5 @@
 package com.example.vsms;
 
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -9,15 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Adapter_list_post extends RecyclerView.Adapter<Adapter_list_post.ViewHolder> {
 
-    private Class_data_in_post[] data_post;
+    private Item_in_post[] data_post;
 
-    public Adapter_list_post(Class_data_in_post[] data_in_post){this.data_post = data_in_post;}
+    public Adapter_list_post(Item_in_post[] data_in_post){this.data_post = data_in_post;}
 
     @NonNull
     @Override
@@ -32,12 +30,12 @@ public class Adapter_list_post extends RecyclerView.Adapter<Adapter_list_post.Vi
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_list_post.ViewHolder holder, int i) {
-        final Class_data_in_post mydata_post = data_post[i];
+        final Item_in_post mydata_post = data_post[i];
         holder.image_view.setImageResource(data_post[i].getImage_view());
         holder.brand.setText(data_post[i].getBrand());
         holder.post_on.setText(data_post[i].getPost_on());
         holder.renew_on.setText(data_post[i].getRenew_on());
-        holder.price.setText(data_post[i].getPrice());
+        holder.price.setText(Double.toString(data_post[i].getPrice()));
         holder.btn_transfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

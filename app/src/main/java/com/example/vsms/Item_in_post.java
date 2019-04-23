@@ -1,11 +1,12 @@
 package com.example.vsms;
 
-public class Class_data_in_post {
+public class Item_in_post {
 
     private int image_view;
-    private String brand,post_on,renew_on,price;
+    private String brand,post_on,renew_on;
+    private double price;
 
-    public Class_data_in_post(int image_view, String brand, String post_on, String renew_on, String price) {
+    public Item_in_post(int image_view, String brand, String post_on, String renew_on, double price) {
         this.image_view = image_view;
         this.brand = brand;
         this.post_on = post_on;
@@ -29,7 +30,7 @@ public class Class_data_in_post {
         return renew_on;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -49,7 +50,7 @@ public class Class_data_in_post {
         this.renew_on = renew_on;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

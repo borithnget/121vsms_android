@@ -74,15 +74,11 @@ public class View_buying_request extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),MainActivity.class);
-            //    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-                intent.setAction("com.example.foo.bar.navigation_notification");
-                intent.putExtra("ac","R.id.navigation_camera");
-                v.getContext().startActivity(intent);
+            //  intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
-                Toast.makeText(View_buying_request.this,"Hello",Toast.LENGTH_SHORT).show();
+                v.getContext().startActivity(intent);
             }
         });
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

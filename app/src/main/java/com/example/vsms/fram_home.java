@@ -21,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -65,7 +66,6 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
                 Toast.makeText(getContext(),"Sell Motorcycle",Toast.LENGTH_SHORT).show();
             }
         });
-
         creatItem();
 //HORIZONTAL
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);

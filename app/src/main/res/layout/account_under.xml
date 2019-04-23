@@ -5,39 +5,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include
-        android:id="@+id/include_header"
-        layout="@layout/account_header">
-    </include>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:background="@color/backgroundfragment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_layout">
-    </android.support.v4.view.ViewPager>
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@color/background"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include_header"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/colorTablayout"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabTextAppearance="@style/CustomTextAppearanceTab"
-        app:tabTextColor="#000">
-
-    </android.support.design.widget.TabLayout>
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+            android:id="@+id/include"
+            layout="@layout/account_header"/>
+            <android.support.design.widget.TabLayout
+                android:layout_below="@+id/include"
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#7367">
+                <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post" />
+                <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loan" />
+            </android.support.design.widget.TabLayout>
+            <FrameLayout
+                android:id="@+id/framlayout"
+                android:background="#ABCCCCCC"
+                android:padding="10dp"
+                android:layout_below="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </FrameLayout>
+        </RelativeLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
