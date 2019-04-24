@@ -1,11 +1,18 @@
 package com.example.vsms;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,7 +32,7 @@ public class View_buying_request extends AppCompatActivity{
     String[] kh_title,detail;
     TextView brand,price,dic;
     ImageView imageView;
-    Button btn_order;
+    Button btn_order,btn_call;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +81,85 @@ public class View_buying_request extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),MainActivity.class);
-            //  intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                //  intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
                 v.getContext().startActivity(intent);
+            }
+        });
+
+        btn_call = (Button)findViewById(R.id.btn_call);
+        btn_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Context context = v.getContext();
+                final BottomSheetDialog dialog;
+                View view= LayoutInflater.from(context).inflate(R.layout.bottom_sheet_call,null);
+
+                dialog= new BottomSheetDialog(context);
+
+
+                dialog.setCancelable(true);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setContentView(view);
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+                dialog.findViewById(R.id.btnPhone1).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(View_buying_request.this);
+                        alertDialogBuilder.setMessage("Are you sure, You wanted to call this number 092660677");
+                                alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface arg0, int arg1) {
+                                                Toast.makeText(View_buying_request.this,"You clicked yes button",Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+                        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(View_buying_request.this,"You clicked No button",Toast.LENGTH_LONG).show();
+                                dialog.dismiss();
+                            }
+                        });
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+                    }
+                });
+
+                dialog.findViewById(R.id.btnPhone2).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(View_buying_request.this);
+                        alertDialogBuilder.setMessage("Are you sure, You wanted to call this number 093660677");
+                        alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Toast.makeText(View_buying_request.this,"You clicked yes button",Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(View_buying_request.this,"You clicked No button",Toast.LENGTH_LONG).show();
+                                dialog.dismiss();
+                            }
+                        });
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+                    }
+                });
+
+                dialog.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(View_buying_request.this,"You click cancel",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }
