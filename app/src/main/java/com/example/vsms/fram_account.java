@@ -71,7 +71,7 @@ public class fram_account extends Fragment {
                 switch(tab.getPosition()){
                     case 0 : fragment = new fram_in_post();
                     break;
-                    case 1 : fragment = new fram_notification();
+                    case 1 : fragment = new fram_in_balance();
                     break;
                 }
                 FragmentManager fm = getActivity().getSupportFragmentManager();
