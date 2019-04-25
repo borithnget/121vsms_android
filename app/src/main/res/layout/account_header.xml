@@ -40,10 +40,12 @@
         android:layout_height="40dp"
         android:layout_marginTop="240dp"
         android:background="#83616161"
-        android:drawableLeft="@drawable/upload_camera_25px"
+        android:drawableStart="@drawable/ic_camera"
         android:gravity="center"
         android:text="Upload"
+        android:paddingLeft="8dp"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView

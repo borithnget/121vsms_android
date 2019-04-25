@@ -57,7 +57,7 @@ public class fram_camera extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fram_camera,container,false);
 
-        // Detail
+// Detail
         Title = (EditText)    view.findViewById(R.id.etTitle);
         category = (TextView) view.findViewById(R.id.etCategory);
         Brand = (TextView)    view.findViewById(R.id.etBrand);
@@ -68,11 +68,11 @@ public class fram_camera extends Fragment {
         Price = (EditText)       view.findViewById(R.id.etPrice);
         Description = (EditText) view.findViewById(R.id.etDiscription);
 
-        //Discount
+//Discount
         DiscoutnType = (EditText)   view.findViewById(R.id.etDisType);
         DiscountAmount = (EditText) view.findViewById(R.id.etDisAmount);
 
-        //Contact
+//Contact
         Name = (EditText)  view.findViewById(R.id.etName);
         Phone = (EditText) view.findViewById(R.id.etPhone);
         Phone2=(EditText)  view.findViewById(R.id.etPhone2);
@@ -80,7 +80,7 @@ public class fram_camera extends Fragment {
         Email = (EditText) view.findViewById(R.id.etEmail);
         //   Address = (TextView) findViewById(R.id.et);
 
-        //image Detail
+//image Detail
         imgTitle = (ImageView)    view.findViewById(R.id.imgTitle);
         imgCategory = (ImageView) view.findViewById(R.id.imgCategory);
         imgBrand = (ImageView)    view.findViewById(R.id.imgBrand);
@@ -102,13 +102,13 @@ public class fram_camera extends Fragment {
 
         //    imgAddress = (ImageView) findViewById(R.id.imgAddress);
 
-        //drop list
+//drop list
         dropCategory=(TextView) view.findViewById(R.id.tvdropCategory);
         dropTax=(TextView)      view.findViewById(R.id.tvdropTaxtype);
         dropBrand=(TextView)    view.findViewById(R.id.tvdropBrand);
         dropYear=(TextView)     view.findViewById(R.id.tvdropYear);
         dropCondition=(TextView)view.findViewById(R.id.tvdropCondition);
-        //add phone
+//add phone
         tilPhone2=(TextInputLayout)view.findViewById(R.id.tilPhone2);
         tilPhone3=(TextInputLayout)view.findViewById(R.id.tilPhone3);
         add=(ImageButton)   view.findViewById(R.id.btnAdd);
@@ -137,11 +137,12 @@ public class fram_camera extends Fragment {
     private void BackToolbar() {
 
         toolbar.setTitle("");
-        //     setSupportActionBar(toolbar);
+//  setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.back_35px);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(getContext(),"Back",Toast.LENGTH_SHORT).show();
             }
         });

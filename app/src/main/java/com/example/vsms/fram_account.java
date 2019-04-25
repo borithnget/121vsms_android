@@ -1,7 +1,6 @@
 package com.example.vsms;
 
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,9 +13,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -29,7 +26,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -47,7 +43,6 @@ public class fram_account extends Fragment {
     CircleImageView circleImageView;
     ImageButton img_profile;
     Button btn_upload;
-    private BottomSheetDialog bottomSheetDialog;
 
     TabLayout tabLayout;
     FrameLayout frameLayout;
@@ -76,7 +71,7 @@ public class fram_account extends Fragment {
                 switch(tab.getPosition()){
                     case 0 : fragment = new fram_in_post();
                     break;
-                    case 1 : fragment = new fram_notification();
+                    case 1 : fragment = new fram_in_balance();
                     break;
                 }
                 FragmentManager fm = getActivity().getSupportFragmentManager();
@@ -101,7 +96,7 @@ public class fram_account extends Fragment {
 
 
         toolbar.setTitle("");
-        toolbar.setNavigationIcon(R.drawable.edit_account_35px);
+        toolbar.setNavigationIcon(R.drawable.ic_account_edit);
         ((AppCompatActivity)getContext()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -109,6 +104,7 @@ public class fram_account extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(),Edit_account_setting.class);
                 startActivity(intent);
+
             }
         });
 
@@ -137,7 +133,8 @@ public class fram_account extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_settings:
-                Toast.makeText(getActivity(),"click",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"click",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this.getActivity(),UserAccountRegistrationActivity.class));
                 break;
             case R.id.action_upload:
                 Intent intent = new Intent(Intent.ACTION_SEND);

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#367cbb</color>
+    <color name="colorPrimaryDark">#40000000</color>
     <color name="colorAccent">#367cbb</color>
     <color name="colorTablayout">#FF386AC7</color>
     <color name="background">#FFFFFF</color>
     <color name="backgroundfragment">#B2BEB5</color>
     <color name="tabcolor">#95EC2E</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_red">#ff0006</color>
 </resources>
 

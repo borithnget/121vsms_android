@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
     android:id="@+id/constraintLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.CardView
@@ -26,19 +26,18 @@
                 android:src="@drawable/image_honda_dream"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/txtbrand"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginStart="8dp"
                 android:text="Honda Dream c125"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toStartOf="@+id/btn_menu"
                 app:layout_constraintStart_toEndOf="@+id/image_view"
                 app:layout_constraintTop_toTopOf="parent" />
             <TextView
-                android:id="@+id/txtrenew"
+                android:id="@+id/txttotal"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginStart="8dp"
@@ -49,12 +48,15 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/image_view"
                 app:layout_constraintTop_toBottomOf="@+id/txtbrand" />
+
             <Button
-                android:id="@+id/btn_menu"
+                android:id="@+id/btn_next"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="2dp"
                 android:background="#00F8F4F4"
-                android:drawableRight="@drawable/next_35px"
+                android:drawableRight="@drawable/next_30px"
                 android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

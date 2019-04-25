@@ -8,17 +8,16 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
+    public BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity{
                             break;
                         case R.id.navigation_camera:
                             selectedFragment = new fram_camera();
+                            bottomNavigationView.setVisibility(View.GONE);
                             break;
                         case R.id.navigation_chat:
                             selectedFragment = new fram_message();

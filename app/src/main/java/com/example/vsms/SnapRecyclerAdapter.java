@@ -67,7 +67,6 @@ public class SnapRecyclerAdapter extends RecyclerView.Adapter<SnapRecyclerAdapte
 //                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 //                fragmentTransaction.commit();
 
-                Toast.makeText(v.getContext(),"Click item : "+item.getBrand() ,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(v.getContext(),View_buying_request.class);
                 intent.putExtra("img_header",item.getImage_view());
                 intent.putExtra("brand",item.getBrand());
