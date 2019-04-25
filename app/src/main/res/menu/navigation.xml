@@ -3,22 +3,18 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/home_40px"
-        android:title="Home"/>
+        android:icon="@drawable/home_40px" />
     <item
         android:id="@+id/navigation_notification"
-        android:icon="@drawable/notification_40px"
-        android:title="Notification"/>
+        android:icon="@drawable/notification_40px" />
     <item
         android:id="@+id/navigation_camera"
-        android:icon="@drawable/camera_40px"
-        android:title="Post Ad" />
+        android:icon="@drawable/camera_40px" />
     <item
         android:id="@+id/navigation_chat"
-        android:icon="@drawable/chat_40px"
-        android:title="SMS" />
+        android:icon="@drawable/chat_40px" />
     <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/account_40px"
-        android:title="Account"/>
+        />
 </menu>

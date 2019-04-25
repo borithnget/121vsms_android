@@ -5,8 +5,10 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.vsms.Class.AppNavigation;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -34,9 +37,12 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 
-public class fram_home extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
+public class fram_home extends Fragment {
 
-    SliderLayout sliderLayout;
+    private SliderLayout sliderLayout;
+    private DrawerLayout drawer;
+    private BottomNavigationView bottomNavigationView;
+
     private ArrayList<Item_horizotal> items;
     @Nullable
     @Override
@@ -44,20 +50,26 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
                              @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fram_home, container, false);
 
+        View view1=inflater.inflate(R.layout.activity_main,container,false);
+
+        bottomNavigationView=(BottomNavigationView) view1.findViewById(R.id.bottom_navigation);
+        //start initial toolbar
         Toolbar toolbar_home = (Toolbar) view.findViewById(R.id.toolbar_home);
         toolbar_home.setTitle("");
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar_home);
         setHasOptionsMenu(true);
 
-        DrawerLayout drawer = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+        //start initial navigation menu
+        drawer = (DrawerLayout) view.findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar_home,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //navigationView.setNavigationItemSelectedListener(this);
+        AppNavigation.setupDrawerContent(getContext(),navigationView,drawer,getActivity());
 
         ImageView img_motor = (ImageView)view.findViewById(R.id.image_motor);
         img_motor.setOnClickListener(new View.OnClickListener() {
@@ -67,20 +79,20 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
             }
         });
         creatItem();
-//HORIZONTAL
+        //HORIZONTAL
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         SnapRecyclerAdapter adapter = new SnapRecyclerAdapter(getContext(),items);
         RecyclerView recy_horizontal = (RecyclerView) view.findViewById(R.id.recy_horizontal);
         recy_horizontal.setHasFixedSize(true);
         recy_horizontal.setLayoutManager(layoutManager);
         recy_horizontal.setAdapter(adapter);
-//Vertical
+        //Vertical
         SnapRecyclerAdapter adapter1 = new SnapRecyclerAdapter(getContext(),items);
         RecyclerView recy_vertical = (RecyclerView) view.findViewById(R.id.recy_vertical);
         recy_vertical.setLayoutManager(new GridLayoutManager(getContext(),2));
         recy_vertical.setHasFixedSize(true);
         recy_vertical.setAdapter(adapter1);
-// Slides
+        // Slides
         sliderLayout = view.findViewById(R.id.view_flipper);
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.SWAP); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderLayout.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
@@ -110,10 +122,14 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         switch (item.getItemId()){
             case R.id.action_search:
                 Toast.makeText(getContext(),"Action Search",Toast.LENGTH_SHORT).show();
-                break;
+                //break;
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /*
+    implements NavigationView.OnNavigationItemSelectedListener
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -146,6 +162,7 @@ public class fram_home extends Fragment implements NavigationView.OnNavigationIt
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    */
     private void setSliderViews() {
         for (int i = 0; i < 4; i++) {
         DefaultSliderView sliderView = new DefaultSliderView(getContext());

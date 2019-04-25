@@ -30,8 +30,8 @@ public class Adapter_list_notification extends RecyclerView.Adapter<Adapter_list
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.product_order_list,parent,false);
-        //View view = layoutInflater.inflate(R.layout.view_pending_product_post,parent,false);
+        //View view = layoutInflater.inflate(R.layout.product_order_list,parent,false);
+        View view = layoutInflater.inflate(R.layout.view_pending_product_post,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
 
         return viewHolder;
@@ -43,10 +43,10 @@ public class Adapter_list_notification extends RecyclerView.Adapter<Adapter_list
         Class_Product_order_list order_list = order_lists[position];
         holder.image_view.setImageResource(order_lists[position].getImg_view());
         holder.brand.setText(order_lists[position].getBrand());
-        holder.price.setText("Price: "+Double.toString(order_lists[position].getPrice()));
-        holder.name.setText("Name: "+order_lists[position].getName());
-        holder.condition.setText("Condition: "+order_lists[position].getCondition());
-        holder.amt_request.setText("Amount Request: "+Double.toString(order_lists[position].getAmt_request()));
+        holder.price.setText(Double.toString(order_lists[position].getPrice()));
+        //holder.name.setText("Name: "+order_lists[position].getName());
+        holder.condition.setText(order_lists[position].getCondition());
+        holder.amt_request.setText(Double.toString(order_lists[position].getAmt_request()));
 
     }
 
@@ -62,12 +62,12 @@ public class Adapter_list_notification extends RecyclerView.Adapter<Adapter_list
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.image_view=(ImageView)itemView.findViewById(R.id.img_view);
-            this.brand=(TextView)itemView.findViewById(R.id.txtbrand);
-            this.price=(TextView)itemView.findViewById(R.id.txtprice);
-            this.name = (TextView)itemView.findViewById(R.id.txtname);
-            this.condition = (TextView)itemView.findViewById(R.id.txtcondition);
-            this.amt_request = (TextView)itemView.findViewById(R.id.txtamount_request);
+            this.image_view=(ImageView)itemView.findViewById(R.id.image_product);
+            this.brand=(TextView)itemView.findViewById(R.id.txt_post_title);
+            this.price=(TextView)itemView.findViewById(R.id.txt_Price);
+            //this.name = (TextView)itemView.findViewById(R.id.txtname);
+            this.condition = (TextView)itemView.findViewById(R.id.txt_condition);
+            this.amt_request = (TextView)itemView.findViewById(R.id.txt_amount_request);
 
         }
     }

@@ -24,13 +24,25 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.vsms.Adapter_list_notification;
+import com.example.vsms.Class.AppNavigation;
 import com.example.vsms.Class_Product_order_list;
 import com.example.vsms.R;
 
 import java.util.ArrayList;
 
-public class fram_notification extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
+public class fram_notification extends Fragment {
     private ArrayList<Class_Product_order_list> items;
+    private String notificationType="";
+
+    Class_Product_order_list[] order_lists = new Class_Product_order_list[]{
+            new Class_Product_order_list(R.drawable.image_honda_dream,"Honda",2010,"hoka","new ",3000),
+            new Class_Product_order_list(R.drawable.image_nex,"Nex 2018", 1009,"kola","Used",1000),
+            new Class_Product_order_list(R.drawable.image_zoomer_x_2017,"Zoomer x",4000,"youka","old",2100),
+            new Class_Product_order_list(R.drawable.image_hybrid_2017,"Hybrid 2017",34000,"Thean","oldest",2700),
+            new Class_Product_order_list(R.drawable.image_nex,"Nex 3x",400,"Maki","New",100),
+            new Class_Product_order_list(R.drawable.image_honda_click125i_19,"Click2018",2700,"Soka","Uesed",4100),
+    };
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -38,7 +50,7 @@ public class fram_notification extends Fragment implements NavigationView.OnNavi
         View view=inflater.inflate(R.layout.frame_notification, container, false);
 
         Toolbar toolbar_home = (Toolbar) view.findViewById(R.id.toolbar_home);
-        toolbar_home.setTitle("Pending Product Post");
+
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar_home);
         setHasOptionsMenu(true);
@@ -48,19 +60,23 @@ public class fram_notification extends Fragment implements NavigationView.OnNavi
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        AppNavigation.setupDrawerContent(getContext(),navigationView,drawer,getActivity());
 
+        if(getArguments()!=null) {
+            notificationType = getArguments().getString("type");
+            if(notificationType.equals("post")){
+                toolbar_home.setTitle("Pending Product Posting");
+            }
+            else if(notificationType.equals("loan")){
+                toolbar_home.setTitle("Pending Loan Approval");
+            }
+            else if(notificationType.equals("order")){
+                toolbar_home.setTitle("Product Order List");
+            }
+        }else
+            toolbar_home.setTitle("All Pending Approval");
 
-        Class_Product_order_list[] order_lists = new Class_Product_order_list[]{
-                new Class_Product_order_list(R.drawable.image_honda_dream,"Honda",2010,"hoka","new ",3000),
-                new Class_Product_order_list(R.drawable.image_nex,"Nex 2018", 1009,"kola","Used",1000),
-                new Class_Product_order_list(R.drawable.image_zoomer_x_2017,"Zoomer x",4000,"youka","old",2100),
-                new Class_Product_order_list(R.drawable.image_hybrid_2017,"Hybrid 2017",34000,"Thean","oldest",2700),
-                new Class_Product_order_list(R.drawable.image_nex,"Nex 3x",400,"Maki","New",100),
-                new Class_Product_order_list(R.drawable.image_honda_click125i_19,"Click2018",2700,"Soka","Uesed",4100),
-        };
         createItem();
 
         /*
@@ -83,38 +99,6 @@ public class fram_notification extends Fragment implements NavigationView.OnNavi
         recy_horizontal.setAdapter(adapterListNotification);
 
         return view;
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        int id = menuItem.getItemId();
-        switch (id){
-            case R.id.nav_profile:
-                Intent intent = new Intent(getContext(),Edit_account_setting.class);
-                startActivity(intent);
-                break;
-            case R.id.nav_your_post:
-                Toast.makeText(getContext(),"Your post",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_your_like:
-                Toast.makeText(getContext(),"Your Like",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_loan:
-                Toast.makeText(getContext(),"Your Loan",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_product_order:
-                Toast.makeText(getContext(),"Your Product Order",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_report:
-                Toast.makeText(getContext(),"Report",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_language:
-                Toast.makeText(getContext(),"Language",Toast.LENGTH_SHORT).show();
-                break;
-        }
-        DrawerLayout drawer = (DrawerLayout) getView().findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     private void createItem(){
