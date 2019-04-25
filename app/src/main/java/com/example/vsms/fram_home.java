@@ -120,7 +120,7 @@ public class fram_home extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_search:
+            case R.id.action_khmer:
                 Toast.makeText(getContext(),"Action Search",Toast.LENGTH_SHORT).show();
                 //break;
                 return true;
