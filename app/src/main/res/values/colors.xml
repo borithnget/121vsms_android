@@ -10,5 +10,6 @@
     <color name="color_white">#FFFFFF</color>
     <color name="color_black">#000000</color>
     <color name="color_red">#ff0006</color>
+    <color name="WHITE">#ffff</color>
 </resources>
 

@@ -121,9 +121,12 @@ public class fram_home extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_khmer:
-                Toast.makeText(getContext(),"Action Search",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"khmer",Toast.LENGTH_SHORT).show();
                 //break;
                 return true;
+            case R.id.action_english:
+                Toast.makeText(getContext(),"english", Toast.LENGTH_SHORT).show();
+
         }
         return super.onOptionsItemSelected(item);
     }

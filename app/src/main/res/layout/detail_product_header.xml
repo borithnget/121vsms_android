@@ -85,11 +85,13 @@
                     android:padding="10dp"
                     android:text="description"
                     android:textSize="18dp" />
+
                 <ListView
                     android:id="@+id/list_view"
                     android:layout_width="match_parent"
-                    android:layout_height="145dp"
-                    android:layout_below="@+id/name_decsription">
-                </ListView>
+                    android:layout_height="120dp"
+                    android:layout_below="@+id/name_decsription"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="1dp"></ListView>
             </RelativeLayout>
 </RelativeLayout>

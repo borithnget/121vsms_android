@@ -1,12 +1,14 @@
 package com.example.vsms;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -55,28 +57,33 @@ public class fram_camera extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view=inflater.inflate(R.layout.fram_camera,container,false);
 
+
+//            Double price= getArguments().getDouble("price");
 // Detail
-        Title = (EditText)    view.findViewById(R.id.etTitle);
-        category = (TextView) view.findViewById(R.id.etCategory);
-        Brand = (TextView)    view.findViewById(R.id.etBrand);
-        TaxType = (TextView)  view.findViewById(R.id.etTax);
-        Year = (TextView)     view.findViewById(R.id.etYear);
+        Title =     (EditText)    view.findViewById(R.id.etTitle);
+        category =  (TextView) view.findViewById(R.id.etCategory);
+        Brand =     (TextView)    view.findViewById(R.id.etBrand);
+        TaxType =   (TextView)  view.findViewById(R.id.etTax);
+        Year =      (TextView)     view.findViewById(R.id.etYear);
         Condition = (TextView)view.findViewById(R.id.etCondition);
 
-        Price = (EditText)       view.findViewById(R.id.etPrice);
+        Price =       (EditText)       view.findViewById(R.id.etPrice);
         Description = (EditText) view.findViewById(R.id.etDiscription);
 
+
+
 //Discount
-        DiscoutnType = (EditText)   view.findViewById(R.id.etDisType);
+        DiscoutnType =   (EditText)   view.findViewById(R.id.etDisType);
         DiscountAmount = (EditText) view.findViewById(R.id.etDisAmount);
 
 //Contact
-        Name = (EditText)  view.findViewById(R.id.etName);
+        Name =  (EditText)  view.findViewById(R.id.etName);
         Phone = (EditText) view.findViewById(R.id.etPhone);
-        Phone2=(EditText)  view.findViewById(R.id.etPhone2);
-        Phone3=(EditText)  view.findViewById(R.id.etPhone3);
+        Phone2= (EditText)  view.findViewById(R.id.etPhone2);
+        Phone3= (EditText)  view.findViewById(R.id.etPhone3);
         Email = (EditText) view.findViewById(R.id.etEmail);
         //   Address = (TextView) findViewById(R.id.et);
 
@@ -94,34 +101,37 @@ public class fram_camera extends Fragment {
         imgDisAmount = (ImageView)view.findViewById(R.id.imgDisAmount);
 
         // image contact
-        imgName=(ImageView)  view.findViewById(R.id.imgName);
-        imgPhone=(ImageView) view.findViewById(R.id.imgPhone);
+        imgName=  (ImageView)  view.findViewById(R.id.imgName);
+        imgPhone= (ImageView) view.findViewById(R.id.imgPhone);
         imgPhone2=(ImageView)view.findViewById(R.id.imgPhone2);
         imgPhone3=(ImageView)view.findViewById(R.id.imgPhone3);
-        imgEmail=(ImageView) view.findViewById(R.id.imgEmail);
+        imgEmail= (ImageView) view.findViewById(R.id.imgEmail);
 
         //    imgAddress = (ImageView) findViewById(R.id.imgAddress);
 
 //drop list
-        dropCategory=(TextView) view.findViewById(R.id.tvdropCategory);
-        dropTax=(TextView)      view.findViewById(R.id.tvdropTaxtype);
-        dropBrand=(TextView)    view.findViewById(R.id.tvdropBrand);
-        dropYear=(TextView)     view.findViewById(R.id.tvdropYear);
+        dropCategory= (TextView) view.findViewById(R.id.tvdropCategory);
+        dropTax=      (TextView)      view.findViewById(R.id.tvdropTaxtype);
+        dropBrand=    (TextView)    view.findViewById(R.id.tvdropBrand);
+        dropYear=     (TextView)     view.findViewById(R.id.tvdropYear);
         dropCondition=(TextView)view.findViewById(R.id.tvdropCondition);
 //add phone
         tilPhone2=(TextInputLayout)view.findViewById(R.id.tilPhone2);
         tilPhone3=(TextInputLayout)view.findViewById(R.id.tilPhone3);
-        add=(ImageButton)   view.findViewById(R.id.btnAdd);
+        add= (ImageButton)   view.findViewById(R.id.btnAdd);
         add2=(ImageButton)  view.findViewById(R.id.btnAdd2);
 //toolbar and submit
         toolbar=(Toolbar) view.findViewById(R.id.tbBack);
-        submit=(Button)   view.findViewById(R.id.btnSubmit);
+        submit= (Button)   view.findViewById(R.id.btnSubmit);
 // add image
         imageView1=(ImageView)view.findViewById(R.id.Picture1);
         imageView2=(ImageView)view.findViewById(R.id.Picture2);
         imageView3=(ImageView)view.findViewById(R.id.Picture3);
         imageView4=(ImageView)view.findViewById(R.id.Picture4);
         imageView5=(ImageView)view.findViewById(R.id.Picture5);
+
+//***Receive data from frame account ( action edit )
+
 
         BackToolbar();
         TextEvent();
@@ -132,21 +142,36 @@ public class fram_camera extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Bundle arg = getArguments();
 
+        if (arg!=null){
+            Brand.setText(arg.getString("brand"));
+            Price.setText(Double.toString(arg.getDouble("price")));
+            imageView1.setImageResource(arg.getInt("image"));
+        }
+    }
 
     private void BackToolbar() {
 
         toolbar.setTitle("");
-//  setSupportActionBar(toolbar);
+    //  setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.back_35px);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Fragment someFragment = new fram_account();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragme_container, someFragment );
+                transaction.addToBackStack(null);
+                transaction.commit();
 
-                Toast.makeText(getContext(),"Back",Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private void TextEvent(){
         // Title

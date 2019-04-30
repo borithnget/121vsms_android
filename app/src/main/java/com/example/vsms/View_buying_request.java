@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -153,7 +154,7 @@ public class View_buying_request extends AppCompatActivity{
                     }
                 });
 
-                dialog.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+                dialog.findViewById(R.id.btnCancel).setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(View_buying_request.this,"You click cancel",Toast.LENGTH_SHORT).show();
@@ -162,10 +163,14 @@ public class View_buying_request extends AppCompatActivity{
                 });
             }
         });
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detail_product, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
 }

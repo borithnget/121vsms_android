@@ -3,11 +3,14 @@ package com.example.vsms;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity{
                             break;
                         case R.id.navigation_camera:
                             selectedFragment = new fram_camera();
-                            bottomNavigationView.setVisibility(View.GONE);
+
                             break;
                         case R.id.navigation_chat:
                             selectedFragment = new fram_message();
