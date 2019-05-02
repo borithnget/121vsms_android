@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Create_Loan_request"></activity>
+        <activity android:name=".Transfer" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -25,12 +28,15 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserAccountRegistrationActivity"></activity>
-        <activity android:name=".UserAccountRegisterFacebookActivity"></activity>
-        <activity android:name=".ApprovalProductPostingDetailActivity" android:label="Approval Product Posting"/>
+        <activity android:name=".UserAccountRegistrationActivity" />
+        <activity android:name=".UserAccountRegisterFacebookActivity" />
+        <activity
+            android:name=".ApprovalProductPostingDetailActivity"
+            android:label="Approval Product Posting" />
     </application>
 
 </manifest>

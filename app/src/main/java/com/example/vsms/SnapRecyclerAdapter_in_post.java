@@ -56,8 +56,8 @@ public class SnapRecyclerAdapter_in_post extends RecyclerView.Adapter<SnapRecycl
         holder.tranfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(v.getContext(),"Transfer",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(),Transfer.class);
+                v.getContext().startActivity(intent);
             }
 
         });
@@ -112,6 +112,17 @@ public class SnapRecyclerAdapter_in_post extends RecyclerView.Adapter<SnapRecycl
             }
         });
 
+        holder.menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String ShareSubject = ("Your Subject here");
+                intent.putExtra(Intent.EXTRA_SUBJECT,ShareSubject);
+                v.getContext().startActivity(Intent.createChooser(intent,"share_using"));
+            }
+        });
 
     }
 
@@ -123,7 +134,7 @@ public class SnapRecyclerAdapter_in_post extends RecyclerView.Adapter<SnapRecycl
     class ReyclerViewHolder extends RecyclerView.ViewHolder {
         public ImageView image_view;
         public TextView brand,post_on,renew_on,price;
-        public Button delete,edit,tranfer;
+        public Button delete,edit,tranfer,menu;
 
         private ReyclerViewHolder(final View v) {
             super(v);
@@ -135,7 +146,7 @@ public class SnapRecyclerAdapter_in_post extends RecyclerView.Adapter<SnapRecycl
             this.delete=(Button) v.findViewById(R.id.btn_delete);
             this.edit=(Button)v.findViewById(R.id.btn_edit);
             this.tranfer=(Button)v.findViewById(R.id.btn_transfer);
-
+            this.menu = (Button)v.findViewById(R.id.btn_menu);
 
         }
     }

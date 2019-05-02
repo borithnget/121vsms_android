@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="#D8D0D0"
+    android:background="#81AFAFAB"
     android:padding="10dp">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,9 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="092660677"
+            android:text="086 595985"
             android:textColor="#168AE6"
-            android:background="#FFFFFF"
+            android:background="@drawable/corner_top"
             android:textSize="18dp"/>
         <View
             android:id="@+id/SplitLine_hor1"
@@ -47,9 +47,9 @@
             android:layout_below="@+id/SplitLine_hor1"
             android:layout_marginTop="2dp"
             android:textSize="18dp"
-            android:text="093660677"
+            android:text="096 236 3929"
             android:textColor="#168AE6"
-            android:background="#FFFFFF"
+            android:background="@drawable/corner_bottom"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Cancel"
-            android:background="#FFFFFF"
+            android:background="@drawable/corner"
             android:textColor="#168AE6"
             android:textSize="16dp"/>
     </LinearLayout>

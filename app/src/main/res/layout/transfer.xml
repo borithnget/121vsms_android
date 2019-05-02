@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vsms.Transfer">
+<android.support.v7.widget.Toolbar
+    android:id="@+id/tranfer_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#3D57E9"
+    >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Transfer Information"
+    android:textSize="20dp"
+    android:layout_gravity="center_horizontal"
+    android:textColor="#fff"
+    />
+</android.support.v7.widget.Toolbar>
+
+    <ImageView
+    android:id="@+id/imgfromshop"
+    android:layout_width="20dp"
+    android:layout_height="35dp"
+    android:background="@drawable/underline"
+    android:layout_below="@+id/tranfer_toolbar"
+    android:src="@drawable/icons8_circle_null_24" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilfromshop"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/tranfer_toolbar"
+        android:layout_toRightOf="@+id/imgfromshop"
+        android:background="@drawable/underline">
+
+        <EditText
+            android:id="@+id/etFromshop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/underline"
+            android:gravity="center_vertical"
+            android:hint=" From Shop"
+            android:paddingLeft="8dp"
+            android:textSize="19dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgtoshop"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        android:background="@drawable/underline"
+        android:layout_below="@+id/imgfromshop"
+        android:src="@drawable/icons8_circle_null_24" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tiltoshop"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/tilfromshop"
+        android:layout_toRightOf="@+id/imgtoshop"
+        android:background="@drawable/underline">
+
+        <EditText
+            android:id="@+id/etToshop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/underline"
+            android:gravity="center_vertical"
+            android:hint=" To Shop"
+            android:paddingLeft="8dp"
+            android:textSize="19dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgqty"
+        android:layout_width="20dp"
+        android:layout_height="70dp"
+        android:background="@drawable/underline"
+        android:layout_below="@+id/imgtoshop"
+        android:paddingBottom="15dp"
+        android:src="@drawable/icons8_circle_null_24" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilqty"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/tiltoshop"
+        android:layout_toRightOf="@+id/imgqty"
+        android:background="@drawable/underline">
+
+        <EditText
+            android:id="@+id/etQty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:hint=" To Shop"
+            android:paddingLeft="8dp"
+            android:paddingBottom="10dp"
+            android:textSize="19dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/tilqty"
+        android:text="Submit"
+        android:textColor="#ffff"
+        android:textAllCaps="false"
+        android:background="#445FF1"
+        android:layout_marginTop="29dp"
+        android:layout_centerHorizontal="true"
+         />
+</RelativeLayout>

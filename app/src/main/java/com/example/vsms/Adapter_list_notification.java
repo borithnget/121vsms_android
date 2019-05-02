@@ -16,6 +16,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -55,6 +57,12 @@ public class Adapter_list_notification extends RecyclerView.Adapter<Adapter_list
         //holder.name.setText("Name: "+order_lists[position].getName());
         holder.condition.setText(order_lists[position].getCondition());
         holder.amt_request.setText(Double.toString(order_lists[position].getAmt_request()));
+        holder.Show_detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"show detail", Toast.LENGTH_SHORT).show();
+            }
+        });
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +125,7 @@ public class Adapter_list_notification extends RecyclerView.Adapter<Adapter_list
     public static  class  ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image_view;
         public TextView brand,price,condition,name,amt_request;
+        public ImageButton  Show_detail;
         public RelativeLayout relativeLayout;
         public ConstraintLayout constraintLayout;
 
@@ -128,6 +137,7 @@ public class Adapter_list_notification extends RecyclerView.Adapter<Adapter_list
             //this.name = (TextView)itemView.findViewById(R.id.txtname);
             this.condition = (TextView)itemView.findViewById(R.id.txt_condition);
             this.amt_request = (TextView)itemView.findViewById(R.id.txt_amount_request);
+            this.Show_detail = (ImageButton)itemView.findViewById(R.id.btnShowDetail);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }
     }
